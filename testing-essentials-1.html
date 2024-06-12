@@ -19,7 +19,7 @@
           content="This article addresses the common misuse of unit testing terms and examines opposing methodologies.">
     <meta name="author" content="Anton Bogomazov">
 
-    <link rel="canonical" href="di-coding-kata.html">
+    <link rel="canonical" href="testing-essentials-1.html">
 </head>
 
 <body>
@@ -68,6 +68,7 @@
         <article class="flex-grow break-words" data-pagefind-body>
             <div id="blog-hero"><h1 class="title mb-3 sm:mb-1">Unit Testing Essentials: Definition</h1>
                 <time datetime="2023-08-19T00:00:00.000Z">19 August 2023</time>
+            </div>
             <div class="prose prose-sm prose-cactus mt-12 prose-headings:font-semibold prose-headings:before:absolute prose-headings:before:-ms-4 prose-headings:before:text-accent prose-headings:before:content-['#'] prose-th:before:content-none">
                 <h2 id="introduction">Introduction</h2>
                 <p>There is a noticeable trend in the software development field: terms commonly associated with unit
@@ -136,51 +137,23 @@
                     </li>
                 </ul>
                 <p>Example:</p>
-                <pre is:raw="" class="astro-code dracula"
-                     style="background-color: #282A36; overflow-x: auto; white-space: pre-wrap; word-wrap: break-word;"
-                     tabindex="0"><code><span class="line"><span style="color: #F1FA8C">"lock account and notify user after 3 failed authorization attempts"</span><span
-                        style="color: #F8F8F2"> {</span></span>
-<span class="line"><span style="color: #F8F8F2">    </span><span style="color: #FF79C6">val</span><span
-        style="color: #F8F8F2"> database </span><span style="color: #FF79C6">=</span><span
-        style="color: #F8F8F2"> </span><span style="color: #50FA7B">testDatabase</span><span
-        style="color: #F8F8F2">()</span></span>
-<span class="line"><span style="color: #F8F8F2">    </span><span style="color: #FF79C6">val</span><span
-        style="color: #F8F8F2"> messageBusMock </span><span style="color: #FF79C6">=</span><span
-        style="color: #F8F8F2"> </span><span style="color: #50FA7B">mockk</span><span
-        style="color: #F8F8F2">&#x3C;</span><span style="color: #8BE9FD; font-style: italic">MessageBus</span><span
-        style="color: #F8F8F2">>()</span></span>
-<span class="line"><span style="color: #F8F8F2">    </span><span style="color: #FF79C6">val</span><span
-        style="color: #F8F8F2"> notificator </span><span style="color: #FF79C6">=</span><span
-        style="color: #F8F8F2"> </span><span style="color: #50FA7B">Notificator</span><span style="color: #F8F8F2">(messageBusMock)</span></span>
-<span class="line"><span style="color: #F8F8F2">    </span><span style="color: #FF79C6">val</span><span
-        style="color: #F8F8F2"> repository </span><span style="color: #FF79C6">=</span><span
-        style="color: #F8F8F2"> </span><span style="color: #50FA7B">Repository</span><span style="color: #F8F8F2">(database)</span></span>
-<span class="line"><span style="color: #F8F8F2">    </span><span style="color: #FF79C6">val</span><span
-        style="color: #F8F8F2"> sut </span><span style="color: #FF79C6">=</span><span
-        style="color: #F8F8F2"> </span><span style="color: #50FA7B">AuthorizationManager</span><span
-        style="color: #F8F8F2">(notificator, repository)</span></span>
-<span class="line"></span>
-<span class="line"><span style="color: #F8F8F2">    </span><span style="color: #FF79C6">val</span><span
-        style="color: #F8F8F2"> result </span><span style="color: #FF79C6">=</span><span
-        style="color: #F8F8F2"> sut.</span><span style="color: #50FA7B">authorize</span><span style="color: #F8F8F2">(userId </span><span
-        style="color: #FF79C6">=</span><span style="color: #F8F8F2"> </span><span style="color: #BD93F9">15</span><span
-        style="color: #F8F8F2">, authData </span><span style="color: #FF79C6">=</span><span
-        style="color: #F8F8F2"> </span><span style="color: #50FA7B">authData</span><span
-        style="color: #F8F8F2">())</span></span>
-<span class="line"></span>
-<span class="line"><span style="color: #F8F8F2">    result shouldBe </span><span
-        style="color: #BD93F9">false</span></span>
-<span class="line"><span style="color: #F8F8F2">    repository.</span><span
-        style="color: #50FA7B">isUserBlocked</span><span style="color: #F8F8F2">(userId </span><span
-        style="color: #FF79C6">=</span><span style="color: #F8F8F2"> </span><span style="color: #BD93F9">15</span><span
-        style="color: #F8F8F2">) shouldBe </span><span style="color: #BD93F9">true</span></span>
-<span class="line"><span style="color: #F8F8F2">    </span><span style="color: #50FA7B">verify</span><span
-        style="color: #F8F8F2">(exactly </span><span style="color: #FF79C6">=</span><span
-        style="color: #F8F8F2"> </span><span style="color: #BD93F9">1</span><span style="color: #F8F8F2">) { messageBusMock.</span><span
-        style="color: #50FA7B">sendEvent</span><span style="color: #F8F8F2">(</span><span style="color: #50FA7B">alertEvent</span><span
-        style="color: #F8F8F2">(userId </span><span style="color: #FF79C6">=</span><span style="color: #F8F8F2"> </span><span
-        style="color: #BD93F9">15</span><span style="color: #F8F8F2">)) }</span></span>
-<span class="line"><span style="color: #F8F8F2">}</span></span></code></pre>
+                <pre>
+                    <code>
+"lock account and notify user after 3 failed authorization attempts" {
+    val database = testDatabase()
+    val messageBusMock = mockk&ltMessageBus&gt()
+    val notificator = Notificator(messageBusMock)
+    val repository = Repository(database)
+    val sut = AuthorizationManager(notificator, repository)
+
+    val result = sut.authorize(userId = 15, authData = authData())
+
+    result shouldBe false
+    repository.isUserBlocked(userId = 15) shouldBe true
+    verify(exactly = 1) { messageBusMock.sendEvent(alertEvent(userId = 15)) }
+}
+                    </code>
+                </pre>
                 <p>I use a single mock for the unmanaged MessageBus, as it is the only dependency whose state I cannot
                     observe from the application.
                     The other collaborators are configured exclusively for each test.</p>
@@ -215,61 +188,23 @@
                     </li>
                 </ul>
                 <p>Example:</p>
-                <pre is:raw="" class="astro-code dracula"
-                     style="background-color: #282A36; overflow-x: auto; white-space: pre-wrap; word-wrap: break-word;"
-                     tabindex="0"><code><span class="line"><span style="color: #F1FA8C">"lock account and notify user after 3 failed authorization attempts"</span><span
-                        style="color: #F8F8F2"> {</span></span>
-<span class="line"><span style="color: #F8F8F2">    </span><span style="color: #FF79C6">val</span><span
-        style="color: #F8F8F2"> notificatorMock </span><span style="color: #FF79C6">=</span><span
-        style="color: #F8F8F2"> </span><span style="color: #50FA7B">mockk</span><span
-        style="color: #F8F8F2">&#x3C;</span><span style="color: #8BE9FD; font-style: italic">Notificator</span><span
-        style="color: #F8F8F2">>()</span></span>
-<span class="line"><span style="color: #F8F8F2">    </span><span style="color: #50FA7B">every</span><span
-        style="color: #F8F8F2"> { notificatorMock.</span><span style="color: #50FA7B">sendAlert</span><span
-        style="color: #F8F8F2">(</span><span style="color: #50FA7B">alertEvent</span><span style="color: #F8F8F2">(userId </span><span
-        style="color: #FF79C6">=</span><span style="color: #F8F8F2"> </span><span style="color: #BD93F9">15</span><span
-        style="color: #F8F8F2">)) }.</span><span style="color: #50FA7B">returns</span><span
-        style="color: #F8F8F2">(</span><span style="color: #BD93F9">true</span><span
-        style="color: #F8F8F2">)</span></span>
-<span class="line"><span style="color: #F8F8F2">    </span><span style="color: #FF79C6">val</span><span
-        style="color: #F8F8F2"> repositoryMock </span><span style="color: #FF79C6">=</span><span
-        style="color: #F8F8F2"> </span><span style="color: #50FA7B">mockk</span><span
-        style="color: #F8F8F2">&#x3C;</span><span style="color: #8BE9FD; font-style: italic">Repository</span><span
-        style="color: #F8F8F2">>()</span></span>
-<span class="line"><span style="color: #F8F8F2">    </span><span style="color: #50FA7B">every</span><span
-        style="color: #F8F8F2"> { repositoryMock.</span><span style="color: #50FA7B">blockAccount</span><span
-        style="color: #F8F8F2">(userId </span><span style="color: #FF79C6">=</span><span style="color: #F8F8F2"> </span><span
-        style="color: #BD93F9">15</span><span style="color: #F8F8F2">) }.</span><span
-        style="color: #50FA7B">returns</span><span style="color: #F8F8F2">(</span><span
-        style="color: #BD93F9">true</span><span style="color: #F8F8F2">)</span></span>
-<span class="line"><span style="color: #F8F8F2">    </span><span style="color: #FF79C6">val</span><span
-        style="color: #F8F8F2"> sut </span><span style="color: #FF79C6">=</span><span
-        style="color: #F8F8F2"> </span><span style="color: #50FA7B">AuthorizationManager</span><span
-        style="color: #F8F8F2">(notificatorMock, repositoryMock)</span></span>
-<span class="line"></span>
-<span class="line"><span style="color: #F8F8F2">    </span><span style="color: #FF79C6">val</span><span
-        style="color: #F8F8F2"> result </span><span style="color: #FF79C6">=</span><span
-        style="color: #F8F8F2"> sut.</span><span style="color: #50FA7B">authorize</span><span style="color: #F8F8F2">(userId </span><span
-        style="color: #FF79C6">=</span><span style="color: #F8F8F2"> </span><span style="color: #BD93F9">15</span><span
-        style="color: #F8F8F2">, authData </span><span style="color: #FF79C6">=</span><span
-        style="color: #F8F8F2"> </span><span style="color: #50FA7B">authData</span><span
-        style="color: #F8F8F2">())</span></span>
-<span class="line"></span>
-<span class="line"><span style="color: #F8F8F2">    result shouldBe </span><span
-        style="color: #BD93F9">false</span></span>
-<span class="line"><span style="color: #F8F8F2">    </span><span style="color: #50FA7B">verify</span><span
-        style="color: #F8F8F2">(exactly </span><span style="color: #FF79C6">=</span><span
-        style="color: #F8F8F2"> </span><span style="color: #BD93F9">1</span><span style="color: #F8F8F2">) { notificatorMock.</span><span
-        style="color: #50FA7B">sendAlert</span><span style="color: #F8F8F2">(</span><span style="color: #50FA7B">alertEvent</span><span
-        style="color: #F8F8F2">(userId </span><span style="color: #FF79C6">=</span><span style="color: #F8F8F2"> </span><span
-        style="color: #BD93F9">15</span><span style="color: #F8F8F2">)) }</span></span>
-<span class="line"><span style="color: #F8F8F2">    </span><span style="color: #50FA7B">verify</span><span
-        style="color: #F8F8F2">(exactly </span><span style="color: #FF79C6">=</span><span
-        style="color: #F8F8F2"> </span><span style="color: #BD93F9">1</span><span style="color: #F8F8F2">) { repositoryMock.</span><span
-        style="color: #50FA7B">blockAccount</span><span style="color: #F8F8F2">(userId </span><span
-        style="color: #FF79C6">=</span><span style="color: #F8F8F2"> </span><span style="color: #BD93F9">15</span><span
-        style="color: #F8F8F2">) }</span></span>
-<span class="line"><span style="color: #F8F8F2">}</span></span></code></pre>
+                <pre>
+                    <code>
+"lock account and notify user after 3 failed authorization attempts" {
+    val notificatorMock = mockk&ltNotificator&gt()
+    every { notificatorMock.sendAlert(alertEvent(userId = 15)) }.returns(true)
+    val repositoryMock = mockk&ltRepository&gt()
+    every { repositoryMock.blockAccount(userId = 15) }.returns(true)
+    val sut = AuthorizationManager(notificatorMock, repositoryMock)
+
+    val result = sut.authorize(userId = 15, authData = authData())
+
+    result shouldBe false
+    verify(exactly = 1) { notificatorMock.sendAlert(alertEvent(userId = 15)) }
+    verify(exactly = 1) { repositoryMock.blockAccount(userId = 15) }
+}
+                    </code>
+                </pre>
                 <p>Effects:</p>
                 <ul>
                     <li>Focus on implementation.</li>
