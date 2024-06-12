@@ -26,6 +26,11 @@
 .footer-contacts {
 }
 
+.footer-contacts-icon {
+    width: 1rem;
+    height: 1rem;
+}
+
 .footer-contacts-list {
     display: flex;
     align-items: center;

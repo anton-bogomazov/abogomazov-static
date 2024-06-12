@@ -1,3 +1,34 @@
+html body {
+	margin-left: auto;
+	margin-right: auto;
+	display: flex;
+	scroll-behavior: smooth;
+	height: 100%;
+	max-width: 48rem;
+	flex-direction: column;
+	padding-left: 2rem;
+	padding-right: 2rem;
+	padding-top: 4rem;
+	font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, Liberation Mono, Courier New, monospace;
+	font-size: .875rem;
+	line-height: 1.25rem;
+	font-weight: 400;
+}
+
+a {
+    color: #777;
+    text-decoration: none;
+
+    &:hover {
+        color: #cc2a42; /* Darker color on hover */
+        text-decoration: underline; /* Underline on hover */
+    }
+}
+
+ul {
+    list-style-type: none;
+}
+
 .text-accent {
     color: #cc2a42;
 }
