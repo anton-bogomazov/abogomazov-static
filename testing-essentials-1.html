@@ -20,124 +20,88 @@
     <meta name="author" content="Anton Bogomazov">
 
     <link rel="canonical" href="testing-essentials-1.html">
+
+    <link rel="stylesheet" href="styles/blog.css"/>
 </head>
 
 <body>
 
 <header id="header"></header>
 
-<main id="main" class="flex-1">
-    <div class="gap-x-10 lg:flex lg:items-start">
-        <aside class="sticky top-20 order-2 -me-32 hidden basis-64 lg:block"><h2 class="font-semibold">Table of
-            Contents</h2>
-            <ul class="mt-4 text-xs">
-                <li class="line-clamp-2 hover:text-accent"><a class="block mt-3"
-                                                              href="testing-essentials-1.html#introduction"
-                                                              aria-label="Scroll to section: Introduction"><span
-                        class="me-1">##</span>Introduction</a></li>
-                <li class="line-clamp-2 hover:text-accent"><a class="block mt-2 ps-3 text-[0.6875rem]"
-                                                              href="testing-essentials-1.html#terms"
-                                                              aria-label="Scroll to section: Terms"><span class="me-1">###</span>Terms</a>
-                </li>
-                <li class="line-clamp-2 hover:text-accent"><a class="block mt-3"
-                                                              href="testing-essentials-1.html#what-is-the-unit-test"
-                                                              aria-label="Scroll to section: What is the Unit Test?"><span
-                        class="me-1">##</span>What is the Unit Test?</a></li>
-                <li class="line-clamp-2 hover:text-accent"><a class="block mt-3"
-                                                              href="testing-essentials-1.html#two-views-on-unit-testing"
-                                                              aria-label="Scroll to section: Two views on Unit Testing"><span
-                        class="me-1">##</span>Two views on Unit Testing</a></li>
-                <li class="line-clamp-2 hover:text-accent"><a class="block mt-2 ps-3 text-[0.6875rem]"
-                                                              href="testing-essentials-1.html#sociable-unit-test"
-                                                              aria-label="Scroll to section: Sociable Unit Test"><span
-                        class="me-1">###</span>Sociable Unit Test</a></li>
-                <li class="line-clamp-2 hover:text-accent"><a class="block mt-2 ps-3 text-[0.6875rem]"
-                                                              href="testing-essentials-1.html#solitary-unit-test"
-                                                              aria-label="Scroll to section: Solitary Unit Test"><span
-                        class="me-1">###</span>Solitary Unit Test</a></li>
-                <li class="line-clamp-2 hover:text-accent"><a class="block mt-3"
-                                                              href="testing-essentials-1.html#conclusion"
-                                                              aria-label="Scroll to section: Conclusion"><span
-                        class="me-1">##</span>Conclusion</a></li>
-                <li class="line-clamp-2 hover:text-accent"><a class="block mt-3"
-                                                              href="testing-essentials-1.html#references"
-                                                              aria-label="Scroll to section: References"><span
-                        class="me-1">##</span>References</a></li>
+<main id="main" class="main-content">
+    <div>
+        <h1 class="title">Unit Testing Essentials: Definition</h1>
+        <time datetime="2023-08-19T00:00:00.000Z">19 August 2023</time>
+    </div>
+    <article class="posts-article">
+        <h2 id="introduction">Introduction</h2>
+        <p>There is a noticeable trend in the software development field: terms commonly associated with unit
+            testing are often misapplied.
+            The associated methodologies and practices are also often misused.
+            At the same time, many institutions assume that developers have sufficient knowledge about testing.
+            This assumption may be due to a historical perspective where testing was seen as an auxiliary
+            element of a project - a task that had to be handled “somehow”.
+            Symbolically, code coverage became the sole criterion for evaluating the quality of testing for many
+            projects, which is not considered adequate.</p>
+        <p>I believe it’s important to have a solid understanding of unit testing because a good test suite is
+            one of the pillars of a project’s agility.
+            This is exactly the kind of quality we’re aiming for in our fast-paced world of elusive business
+            opportunities.</p>
+        <h3 id="terms">Terms</h3>
+        <p><strong>Regression</strong> (<strong>software bug</strong>) is a situation when a feature stops
+            functioning as intended after modifications have been applied.</p>
+        <p><strong>System Under Test (SUT)</strong> is what is being tested.</p>
+        <p><strong>Test Double</strong> is a production object substitute for testing purposes.</p>
+        <h2 id="what-is-the-unit-test">What is the Unit Test?</h2>
+        <p><strong>Unit test</strong> is a piece of code (test method) that triggers another piece of code (SUT)
+            and assesses the correctness of specific assumptions afterward (assertions).
+            If these assumptions are proven incorrect, the unit test is considered to be failed.</p>
+        <p>This general definition is not very helpful in navigating modern testing because it doesn’t allow us
+            to separate the different categories of tests.
+            Also, it does not indicate that unit tests are automated. Therefore, I prefer the stricter one given
+            by Vladimir Khorikov [1]:</p>
+        <blockquote>
+            <p>Unit test is an automated test that:</p>
+            <ul>
+                <li>Verifies a single unit of behavior</li>
+                <li>Does it quickly</li>
+                <li>Does it in isolation from other tests</li>
             </ul>
-        </aside>
-        <article class="flex-grow break-words" data-pagefind-body>
-            <div id="blog-hero"><h1 class="title mb-3 sm:mb-1">Unit Testing Essentials: Definition</h1>
-                <time datetime="2023-08-19T00:00:00.000Z">19 August 2023</time>
-            </div>
-            <div class="prose prose-sm prose-cactus mt-12 prose-headings:font-semibold prose-headings:before:absolute prose-headings:before:-ms-4 prose-headings:before:text-accent prose-headings:before:content-['#'] prose-th:before:content-none">
-                <h2 id="introduction">Introduction</h2>
-                <p>There is a noticeable trend in the software development field: terms commonly associated with unit
-                    testing are often misapplied.
-                    The associated methodologies and practices are also often misused.
-                    At the same time, many institutions assume that developers have sufficient knowledge about testing.
-                    This assumption may be due to a historical perspective where testing was seen as an auxiliary
-                    element of a project - a task that had to be handled “somehow”.
-                    Symbolically, code coverage became the sole criterion for evaluating the quality of testing for many
-                    projects, which is not considered adequate.</p>
-                <p>I believe it’s important to have a solid understanding of unit testing because a good test suite is
-                    one of the pillars of a project’s agility.
-                    This is exactly the kind of quality we’re aiming for in our fast-paced world of elusive business
-                    opportunities.</p>
-                <h3 id="terms">Terms</h3>
-                <p><strong>Regression</strong> (<strong>software bug</strong>) is a situation when a feature stops
-                    functioning as intended after modifications have been applied.</p>
-                <p><strong>System Under Test (SUT)</strong> is what is being tested.</p>
-                <p><strong>Test Double</strong> is a production object substitute for testing purposes.</p>
-                <h2 id="what-is-the-unit-test">What is the Unit Test?</h2>
-                <p><strong>Unit test</strong> is a piece of code (test method) that triggers another piece of code (SUT)
-                    and assesses the correctness of specific assumptions afterward (assertions).
-                    If these assumptions are proven incorrect, the unit test is considered to be failed.</p>
-                <p>This general definition is not very helpful in navigating modern testing because it doesn’t allow us
-                    to separate the different categories of tests.
-                    Also, it does not indicate that unit tests are automated. Therefore, I prefer the stricter one given
-                    by Vladimir Khorikov [1]:</p>
-                <blockquote>
-                    <p>Unit test is an automated test that:</p>
-                    <ul>
-                        <li>Verifies a single unit of behavior</li>
-                        <li>Does it quickly</li>
-                        <li>Does it in isolation from other tests</li>
-                    </ul>
-                </blockquote>
-                <p>Here we would like to emphasize that <em>unit testing of sole integration with infrastructure is not
-                    integration testing</em> by definition. [1] [2]</p>
-                <p>It is often very difficult to write such a test meeting the last 2 criteria, and also usually the
-                    logic of such integrations is trivial,
-                    so such interactions are tested as part of other tests at higher levels (integration, e2e).</p>
-                <p>Now, let’s delve into the concepts of “unit” and “isolation”.
-                    To grasp these concepts, we need to explore 2 approaches, as they define these terms
-                    differently.</p>
-                <h2 id="two-views-on-unit-testing">Two views on Unit Testing</h2>
-                <p>When discussing the two schools unit testing, I will utilize the terms coined by Jay Fields, as I
-                    consider them to be the most accurate.
-                    Furthermore, I will present all the names under which you might encounter these terms.</p>
-                <h3 id="sociable-unit-test">Sociable Unit Test</h3>
-                <p>Verifies a single <em>unit of behavior</em> in <em>isolation from other tests</em>.</p>
-                <ul>
-                    <li>Also known as: Detroit/Chicago school of unit testing, classicist approach,
-                        state-based/inside-out/black-box testing.
-                    </li>
-                    <li>Practitioners: Kent Beck, Martin Fowler, Robert Martin.</li>
-                </ul>
-                <p>Description:</p>
-                <ul>
-                    <li>A unit of behavior can be a command or a business transaction.</li>
-                    <li>SUT is the class under test with all its private dependencies.</li>
-                    <li>Isolation of tests from each other. Avoid a situation where 2 tests from one suite could
-                        interfere with each other by mutating shared dependency.
-                    </li>
-                    <li>Can be described as “passing X and Y to SUT, I expect the result R”.</li>
-                    <li>Shared out-of-process [classic] OR shared <em>unmanaged</em> out-of-process [modern]
-                        dependencies should be mocked. [3]
-                    </li>
-                </ul>
-                <p>Example:</p>
-                <pre>
+        </blockquote>
+        <p>Here we would like to emphasize that <em>unit testing of sole integration with infrastructure is not
+            integration testing</em> by definition. [1] [2]</p>
+        <p>It is often very difficult to write such a test meeting the last 2 criteria, and also usually the
+            logic of such integrations is trivial,
+            so such interactions are tested as part of other tests at higher levels (integration, e2e).</p>
+        <p>Now, let’s delve into the concepts of “unit” and “isolation”.
+            To grasp these concepts, we need to explore 2 approaches, as they define these terms
+            differently.</p>
+        <h2 id="two-views-on-unit-testing">Two views on Unit Testing</h2>
+        <p>When discussing the two schools unit testing, I will utilize the terms coined by Jay Fields, as I
+            consider them to be the most accurate.
+            Furthermore, I will present all the names under which you might encounter these terms.</p>
+        <h3 id="sociable-unit-test">Sociable Unit Test</h3>
+        <p>Verifies a single <em>unit of behavior</em> in <em>isolation from other tests</em>.</p>
+        <ul>
+            <li>Also known as: Detroit/Chicago school of unit testing, classicist approach,
+                state-based/inside-out/black-box testing.
+            </li>
+            <li>Practitioners: Kent Beck, Martin Fowler, Robert Martin.</li>
+        </ul>
+        <p>Description:</p>
+        <ul>
+            <li>A unit of behavior can be a command or a business transaction.</li>
+            <li>SUT is the class under test with all its private dependencies.</li>
+            <li>Isolation of tests from each other. Avoid a situation where 2 tests from one suite could
+                interfere with each other by mutating shared dependency.
+            </li>
+            <li>Can be described as “passing X and Y to SUT, I expect the result R”.</li>
+            <li>Shared out-of-process [classic] OR shared <em>unmanaged</em> out-of-process [modern]
+                dependencies should be mocked. [3]
+            </li>
+        </ul>
+        <p>Example:</p>
+        <pre>
                     <code>
 "lock account and notify user after 3 failed authorization attempts" {
     val database = testDatabase()
@@ -154,41 +118,41 @@
 }
                     </code>
                 </pre>
-                <p>I use a single mock for the unmanaged MessageBus, as it is the only dependency whose state I cannot
-                    observe from the application.
-                    The other collaborators are configured exclusively for each test.</p>
-                <p>Effects:</p>
-                <ul>
-                    <li>Written tests make sense: I invoke the command, I get the result.</li>
-                    <li>Focus shifts from implementation to behavior.</li>
-                    <li>Not tied to implementation details -> resistant to refactoring. Sometimes knowing just the name
-                        of the method being tested may be enough.
-                    </li>
-                    <li>Tests the logic of a cluster of classes (SUT + dependencies).</li>
-                    <li>In case of regression, fail in multiple tests. For example, if bug in some class, dependent
-                        classes are likely to fail as well.
-                    </li>
-                </ul>
-                <h3 id="solitary-unit-test">Solitary Unit Test</h3>
-                <p>Verifies a single <em>unit of code</em> in <em>isolation from any dependencies</em>.</p>
-                <ul>
-                    <li>Also known as: London school of unit testing, mockist approach,
-                        interaction-based/outside-in/white-box testing
-                    </li>
-                    <li>Practitioners: Steve Freeman, Nat Pryce.</li>
-                </ul>
-                <p>Description:</p>
-                <ul>
-                    <li>A unit of code is SUT.</li>
-                    <li><em>Complete</em> isolation of SUT from <em>any</em> dependencies. Dependencies are replaced by
-                        Test Doubles.
-                    </li>
-                    <li>Can be described as “passing X and Y to SUT, I expect invocation of methods F1 of collaborator A
-                        and F2 of collaborator B with arguments ARG1 and ARG2”.
-                    </li>
-                </ul>
-                <p>Example:</p>
-                <pre>
+        <p>I use a single mock for the unmanaged MessageBus, as it is the only dependency whose state I cannot
+            observe from the application.
+            The other collaborators are configured exclusively for each test.</p>
+        <p>Effects:</p>
+        <ul>
+            <li>Written tests make sense: I invoke the command, I get the result.</li>
+            <li>Focus shifts from implementation to behavior.</li>
+            <li>Not tied to implementation details -> resistant to refactoring. Sometimes knowing just the name
+                of the method being tested may be enough.
+            </li>
+            <li>Tests the logic of a cluster of classes (SUT + dependencies).</li>
+            <li>In case of regression, fail in multiple tests. For example, if bug in some class, dependent
+                classes are likely to fail as well.
+            </li>
+        </ul>
+        <h3 id="solitary-unit-test">Solitary Unit Test</h3>
+        <p>Verifies a single <em>unit of code</em> in <em>isolation from any dependencies</em>.</p>
+        <ul>
+            <li>Also known as: London school of unit testing, mockist approach,
+                interaction-based/outside-in/white-box testing
+            </li>
+            <li>Practitioners: Steve Freeman, Nat Pryce.</li>
+        </ul>
+        <p>Description:</p>
+        <ul>
+            <li>A unit of code is SUT.</li>
+            <li><em>Complete</em> isolation of SUT from <em>any</em> dependencies. Dependencies are replaced by
+                Test Doubles.
+            </li>
+            <li>Can be described as “passing X and Y to SUT, I expect invocation of methods F1 of collaborator A
+                and F2 of collaborator B with arguments ARG1 and ARG2”.
+            </li>
+        </ul>
+        <p>Example:</p>
+        <pre>
                     <code>
 "lock account and notify user after 3 failed authorization attempts" {
     val notificatorMock = mockk&ltNotificator&gt()
@@ -205,39 +169,37 @@
 }
                     </code>
                 </pre>
-                <p>Effects:</p>
-                <ul>
-                    <li>Focus on implementation.</li>
-                    <li>Each test checks the logic of a single class in full isolation.</li>
-                    <li>Strongly tied to implementation details -> not resistant to refactoring and SUT changes.</li>
-                    <li>Easy to write - no need to configure dependencies, which may also have dependencies, and so
-                        on.
-                    </li>
-                    <li>Tests tend to be too granular or even trivial: every bit of logic is tested instead of real
-                        operations and commands.
-                    </li>
-                    <li>Due to the high granularity, in the case of regression in class A, you will see a single fail at
-                        the corresponding location.
-                    </li>
-                </ul>
-                <h2 id="conclusion">Conclusion</h2>
-                <p>I hope this article has successfully compiled a range of sources and perspectives into a cohesive
-                    material, contributing to a shared understanding of unit testing concepts.</p>
-                <p>More articles on that topic will be coming soon.
-                    If you have thoughts or suggestions, or if you feel that I’ve made any mistakes in this article,
-                    please don’t hesitate to share them with me.</p>
-                <h2 id="references">References</h2>
-                <ul>
-                    <li>[1] Vladimir Khorikov, “Unit Testing: Principles, Practices, and Patterns”</li>
-                    <li>[2] <a href="https://martinfowler.com/bliki/UnitTest.html">Martin Fowler, “Unit Test”</a></li>
-                    <li>[3] <a href="https://enterprisecraftsmanship.com/posts/when-to-mock/">Vladimir Khorikov, “When
-                        to Mock”</a></li>
-                    <li>Roy Osherove, “The Art of Unit Testing”</li>
-                    <li>Gerard Meszaros, “xUnit Test Patterns: Refactoring Test Code”</li>
-                </ul>
-            </div>
-        </article>
-    </div>
+        <p>Effects:</p>
+        <ul>
+            <li>Focus on implementation.</li>
+            <li>Each test checks the logic of a single class in full isolation.</li>
+            <li>Strongly tied to implementation details -> not resistant to refactoring and SUT changes.</li>
+            <li>Easy to write - no need to configure dependencies, which may also have dependencies, and so
+                on.
+            </li>
+            <li>Tests tend to be too granular or even trivial: every bit of logic is tested instead of real
+                operations and commands.
+            </li>
+            <li>Due to the high granularity, in the case of regression in class A, you will see a single fail at
+                the corresponding location.
+            </li>
+        </ul>
+        <h2 id="conclusion">Conclusion</h2>
+        <p>I hope this article has successfully compiled a range of sources and perspectives into a cohesive
+            material, contributing to a shared understanding of unit testing concepts.</p>
+        <p>More articles on that topic will be coming soon.
+            If you have thoughts or suggestions, or if you feel that I’ve made any mistakes in this article,
+            please don’t hesitate to share them with me.</p>
+        <h2 id="references">References</h2>
+        <ul>
+            <li>[1] Vladimir Khorikov, “Unit Testing: Principles, Practices, and Patterns”</li>
+            <li>[2] <a href="https://martinfowler.com/bliki/UnitTest.html">Martin Fowler, “Unit Test”</a></li>
+            <li>[3] <a href="https://enterprisecraftsmanship.com/posts/when-to-mock/">Vladimir Khorikov, “When
+                to Mock”</a></li>
+            <li>Roy Osherove, “The Art of Unit Testing”</li>
+            <li>Gerard Meszaros, “xUnit Test Patterns: Refactoring Test Code”</li>
+        </ul>
+    </article>
 </main>
 
 <footer id="footer"></footer>
