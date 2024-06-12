@@ -1,3 +1,25 @@
 .text-accent {
     color: #cc2a42;
 }
+
+.text-light {
+    color: #777;
+}
+
+.title {
+	font-size: 1.5rem;
+	line-height: 2rem;
+	font-weight: 600;
+	margin-bottom: 1.5rem;
+}
+
+.link {
+    text-decoration-line: underline;
+    &:hover {
+	    text-decoration-line: none;
+    }
+}
+
+.main-content {
+    display: 1 1 0%;
+}

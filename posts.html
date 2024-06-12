@@ -19,34 +19,44 @@
     <meta name="author" content="Anton Bogomazov">
 
     <link rel="canonical" href="posts.html">
+
+    <link rel="stylesheet" href="styles/blog.css"/>
 </head>
 
 <body>
 
 <header id="header"></header>
 
-<main id="main" class="flex-1"><h1 class="title mb-6">Posts</h1>
-    <div class="grid gap-y-16 sm:grid-cols-[3fr_1fr] sm:gap-x-8">
-        <section aria-label="Blog post list">
-            <ul class="space-y-8 text-start">
-                <li class="flex flex-col flex-wrap gap-2 sm:flex-row [&_q]:basis-full">
-                    <time datetime="2024-02-23T00:00:00.000Z" class="min-w-[120px] text-gray-500">23 Feb 2024</time>
-                    <h2><a href="di-coding-kata.html" class="cactus-link" rel="prefetch">Inject&#39;em all kata</a></h2>
-                    <q class="line-clamp-3 block italic">The purpose of this exercise is to dispel the magic of DI
-                        frameworks and grow understanding of Dependency Injection (DI) as a concept.</q></li>
-                <li class="flex flex-col flex-wrap gap-2 sm:flex-row [&_q]:basis-full">
-                    <time datetime="2023-08-19T00:00:00.000Z" class="min-w-[120px] text-gray-500">19 Aug 2023</time>
-                    <h2><a href="testing-essentials-1.html" class="cactus-link" rel="prefetch">Unit Testing Essentials:
-                        Definition</a></h2><q class="line-clamp-3 block italic">This article addresses the common misuse
-                    of unit testing terms and examines opposing methodologies.</q></li>
-                <li class="flex flex-col flex-wrap gap-2 sm:flex-row [&_q]:basis-full">
-                    <time datetime="2023-06-02T00:00:00.000Z" class="min-w-[120px] text-gray-500">2 Jun 2023</time>
-                    <h2><a href="anemic-model.html" class="cactus-link" rel="prefetch">Anemic Domain Model pattern</a>
-                    </h2><q class="line-clamp-3 block italic">Quick review of Anemic Domain Model (anti-)pattern and a
-                    few reasons why you don&#39;t want to see it in your project.</q></li>
-            </ul>
-        </section>
-    </div>
+<main id="main" class="main-content">
+    <h1 class="title">Posts</h1>
+    <section class="posts-section" aria-label="Blog post list">
+        <ul>
+            <li>
+                <time datetime="2024-02-23T00:00:00.000Z" class="text-light">23 Feb 2024</time>
+                <h2><a class="link" href="di-coding-kata.html" rel="prefetch">Inject&#39;em all kata</a></h2>
+                <q class="posts-description">
+                    The purpose of this exercise is to dispel the magic of DI
+                    frameworks and grow understanding of Dependency Injection (DI) as a concept.
+                </q>
+            </li>
+            <li>
+                <time datetime="2023-08-19T00:00:00.000Z" class="text-light">19 Aug 2023</time>
+                <h2><a class="link" href="testing-essentials-1.html" rel="prefetch">Unit Testing Essentials: Definition</a></h2>
+                <q class="posts-description">
+                    This article addresses the common misuse
+                    of unit testing terms and examines opposing methodologies.
+                </q>
+            </li>
+            <li>
+                <time datetime="2023-06-02T00:00:00.000Z" class="text-light">2 Jun 2023</time>
+                <h2><a class="link" href="anemic-model.html" rel="prefetch">Anemic Domain Model pattern</a></h2>
+                <q class="posts-description">
+                    Quick review of Anemic Domain Model (anti-)pattern and a
+                    few reasons why you don&#39;t want to see it in your project.
+                </q>
+            </li>
+        </ul>
+    </section>
 </main>
 
 <footer id="footer"></footer>
