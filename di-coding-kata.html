@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+
+<head>
+    <!-- Common Meta -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-RC1XFJKFC9"></script>
+    <script src="components/sendAnalytics.js"></script>
+    <!-- Common Traits -->
+    <script src="components/loaders.js"></script>
+
+    <!-- Exclusive Meta -->
+    <title>"Inject'em all kata"</title>
+    <meta name="title" content="Inject'em all kata • Anton Bogomazov | Software Engineer">
+    <meta name="description"
+          content="The purpose of this exercise is to dispel the magic of DI frameworks and grow understanding of Dependency Injection (DI) as a concept.">
+    <meta name="author" content="Anton Bogomazov">
+
+    <link rel="canonical" href="di-coding-kata.html">
+</head>
+
+<body>
+
+<header id="header"></header>
+
+<main id="main" class="flex-1">
+    <div class="gap-x-10 lg:flex lg:items-start">
+        <article class="flex-grow break-words" data-pagefind-body>
+            <div id="blog-hero"><h1 class="title mb-3 sm:mb-1">Inject&#39;em all kata</h1>
+                <time datetime="2024-02-23T00:00:00.000Z">23 February 2024</time>
+            <div class="prose prose-sm prose-cactus mt-12 prose-headings:font-semibold prose-headings:before:absolute prose-headings:before:-ms-4 prose-headings:before:text-accent prose-headings:before:content-['#'] prose-th:before:content-none">
+                <p>Early in my career, I read Clean Architecture by Robert Martin and discovered the world of
+                    architecture and design. It wasn’t easy to start thinking outside of layered architectures at first.
+                    I quickly realised how to make a database a detail, a little later - web APIs. But it took me a
+                    while to figure out how to make Spring a detail.</p>
+                <p>The backends I encountered were definitely Spring-centric. It seemed like everything would fall into
+                    disrepair without it. Now I understand this is a symptom of a tight coupling with framework.</p>
+                <p>Finally, I put that thought aside and continued labelling my components as @Service and @Controller.
+                    But one day I came across Mark Seemann’s book “Dependency Injection” and was finally able to write a
+                    core application module that didn’t depend on Spring.</p>
+                <p>I tried to share this knowledge with people I had mentored in one of my previous companies.
+                    Immediately I found that it was as difficult for people to accept the application without Spring
+                    invasion as it was for me at the time.</p>
+                <p>Today I thought of a way to make learning DI a bit more fun. I like to solve coding katas and came up
+                    with one about DI.</p>
+                <p>I doubt it’s perfect, so I’d love to hear your feedback and improve it:
+                    <a href="https://github.com/anton-bogomazov/inject-em-all-kata">https://github.com/anton-bogomazov/inject-em-all-kata</a>
+                </p></div>
+        </article>
+    </div>
+</main>
+
+<footer id="footer"></footer>
+
+</body>
+</html>
