@@ -24,4 +24,4 @@ function _injectCommonsOnLoad(path) {
     });
 }
 
-_injectCommonsOnLoad('../commons');
+_injectCommonsOnLoad('commons');
