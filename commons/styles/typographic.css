@@ -17,14 +17,3 @@
 .text-small {
     font-size: var(--text-small-size);
 }
-
-.title {
-	font-size: 1.5rem;
-	line-height: 2rem;
-	font-weight: 600;
-	margin-bottom: 1.5rem;
-}
-
-.main-content {
-    display: 1 1 0%;
-}

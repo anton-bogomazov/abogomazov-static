@@ -27,6 +27,8 @@
     <!-- Google Analytics -->
     <script defer src="https://www.googletagmanager.com/gtag/js?id=G-RC1XFJKFC9"></script>
     <script defer src="commons/sendAnalytics.js"></script>
+
+    <script async type="module" src="commons/post-section.js"></script>
 </head>
 
 <body>
@@ -34,32 +36,42 @@
 <content-component>
     <section slot="page-content">
 
-        <h1 class="title">Posts</h1>
+        <h1>Posts</h1>
         <ul class="posts-section" aria-label="Blog post list">
-            <li>
-                <h2><a class="posts-link" href="di-coding-kata.html" rel="prefetch">Inject&#39;em all kata</a></h2>
-                <time datetime="2024-02-23T00:00:00.000Z" class="text-light">23 Feb 2024</time>
-                <q class="posts-description">
+
+            <post-section>
+                <span slot="post-title">
+                    <a class="posts-link" href="di-coding-kata.html" rel="prefetch">Inject&#39;em all kata</a>
+                </span>
+                <span slot="post-date">23 Feb 2024</span>
+                <span slot="post-description">
                     The purpose of this exercise is to dispel the magic of DI
                     frameworks and grow understanding of Dependency Injection (DI) as a concept.
-                </q>
-            </li>
-            <li>
-                <h2><a class="posts-link" href="testing-essentials-1.html" rel="prefetch">Unit Testing Essentials: Definition</a></h2>
-                <time datetime="2023-08-19T00:00:00.000Z" class="text-light">19 Aug 2023</time>
-                <q class="posts-description">
+                </span>
+            </post-section>
+
+            <post-section>
+                <span slot="post-title">
+                    <a class="posts-link" href="testing-essentials-1.html" rel="prefetch">Unit Testing Essentials: Definition</a>
+                </span>
+                <span slot="post-date">19 Aug 2023</span>
+                <span slot="post-description">
                     This article addresses the common misuse
                     of unit testing terms and examines opposing methodologies.
-                </q>
-            </li>
-            <li>
-                <h2><a class="posts-link" href="anemic-model.html" rel="prefetch">Anemic Domain Model pattern</a></h2>
-                <time datetime="2023-06-02T00:00:00.000Z" class="text-light">2 Jun 2023</time>
-                <q class="posts-description">
+                </span>
+            </post-section>
+
+            <post-section>
+                <span slot="post-title">
+                    <a class="posts-link" href="test/anemic-model.html" rel="prefetch">Anemic Domain Model pattern</a>
+                </span>
+                <span slot="post-date">2 Jun 2023</span>
+                <span slot="post-description">
                     Quick review of Anemic Domain Model (anti-)pattern and a
                     few reasons why you don&#39;t want to see it in your project.
-                </q>
-            </li>
+                </span>
+            </post-section>
+
         </ul>
 
     </section>

@@ -9,7 +9,7 @@ createWebComponent(
         <link rel="stylesheet" href="commons/styles/header.css"/>
     </head>
 
-    <header id="main-header" class="header">
+    <header class="header">
         <div class="header-title">
             <p class="text-larger">Anton Bogomazov</p>
             <p class="text-large">Software Engineer</p>
