@@ -1,0 +1,30 @@
+.text-accent {
+    color: var(--text-accent-color);
+}
+
+.text-light {
+    color: var(--text-light-color);
+}
+
+.text-large {
+    font-size: var(--text-large-size);
+}
+
+.text-larger {
+    font-size: var(--text-larger-size);
+}
+
+.text-small {
+    font-size: var(--text-small-size);
+}
+
+.title {
+	font-size: 1.5rem;
+	line-height: 2rem;
+	font-weight: 600;
+	margin-bottom: 1.5rem;
+}
+
+.main-content {
+    display: 1 1 0%;
+}

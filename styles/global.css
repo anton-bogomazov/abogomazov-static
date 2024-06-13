@@ -2,6 +2,10 @@
     --text-color: #111;
     --text-light-color: #777;
     --text-accent-color: #cc2a42;
+    --text-small-size: 0.75rem;
+    --text-regular-size: 0.875rem;
+    --text-large-size: 1.5rem;
+    --text-larger-size: 2rem;
 }
 
 html body {
@@ -16,7 +20,7 @@ html body {
 	padding-right: 2rem;
 	padding-top: 4rem;
 	font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, Liberation Mono, Courier New, monospace;
-	font-size: .875rem;
+	font-size: var(--text-regular-size);
 	line-height: 1.25rem;
 	font-weight: 400;
 	color: var(--text-color);
@@ -32,23 +36,4 @@ a {
 
 ul {
     list-style-type: none;
-}
-
-.text-accent {
-    color: var(--text-accent-color);
-}
-
-.text-light {
-    color: #777;
-}
-
-.title {
-	font-size: 1.5rem;
-	line-height: 2rem;
-	font-weight: 600;
-	margin-bottom: 1.5rem;
-}
-
-.main-content {
-    display: 1 1 0%;
 }
