@@ -5,8 +5,6 @@ createWebComponent(
     `
     <head>
         <link rel="stylesheet" href="commons/styles/global.css"/>
-        <link rel="stylesheet" href="commons/styles/typographic.css"/>
-        <link rel="stylesheet" href="styles/blog.css"/>
     </head>
 
     <li>
