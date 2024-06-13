@@ -13,12 +13,14 @@ html body {
 	flex-direction: column;
 	margin-left: auto;
 	margin-right: auto;
-	scroll-behavior: smooth;
 	height: 100%;
 	max-width: 48rem;
 	padding-left: 2rem;
 	padding-right: 2rem;
 	padding-top: 4rem;
+
+	scroll-behavior: smooth;
+
 	font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, Liberation Mono, Courier New, monospace;
 	font-size: var(--text-regular-size);
 	line-height: 1.25rem;
