@@ -2,110 +2,109 @@
 <html lang="en-GB">
 
 <head>
-    <!-- Common Meta -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <!-- Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-RC1XFJKFC9"></script>
-    <script src="commons/sendAnalytics.js"></script>
-    <!-- Common Traits -->
-    <link rel="icon" href="commons/ico/favicon.ico" sizes="any">
-    <link rel="icon" href="commons/ico/icon.svg" type="image/svg+xml">
-    <link rel="apple-touch-icon" href="commons/ico/apple-touch-icon.png">
-
-    <link rel="stylesheet" href="commons/styles/global.css"/>
-    <link rel="stylesheet" href="commons/styles/typographic.css"/>
-
-    <script type="module" src="commons/header-component.js"></script>
-    <script type="module" src="commons/footer-component.js"></script>
-
     <!-- Exclusive Meta -->
     <title>"Anemic Domain Model Pattern"</title>
     <meta name="title" content="Anemic Domain Model Pattern • Anton Bogomazov | Software Engineer">
     <meta name="description"
           content="Quick review of Anemic Domain Model (anti-)pattern and a few reasons why you don't want to see it in your project.">
     <meta name="author" content="Anton Bogomazov">
-
     <link rel="canonical" href="anemic-model.html">
-
     <link rel="stylesheet" href="styles/blog.css"/>
+
+    <!-- Common Meta -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- Common Traits -->
+    <link rel="icon" href="commons/ico/favicon.ico" sizes="any">
+    <link rel="icon" href="commons/ico/icon.svg" type="image/svg+xml">
+    <link rel="apple-touch-icon" href="commons/ico/apple-touch-icon.png">
+    <link rel="stylesheet" href="commons/styles/global.css"/>
+    <link rel="stylesheet" href="commons/styles/typographic.css"/>
+    <!-- Common Components -->
+    <script async type="module" src="commons/header-component.js"></script>
+    <script async type="module" src="commons/content-component.js"></script>
+    <script async type="module" src="commons/footer-component.js"></script>
+    <!-- Google Analytics -->
+    <script defer src="https://www.googletagmanager.com/gtag/js?id=G-RC1XFJKFC9"></script>
+    <script defer src="commons/sendAnalytics.js"></script>
 </head>
 
 <body>
-
 <header-component></header-component>
+<content-component>
+    <section slot="page-content">
 
-<main id="main" class="main-content">
-    <div>
-        <h1 class="title">Anemic Domain Model Pattern</h1>
-        <time datetime="2023-06-02T00:00:00.000Z">2 June 2023</time>
-    </div>
-    <article class="posts-article">
-        <p>The Anemic Domain Model (ADM) refers to a very common anti-pattern where the domain model objects
-            lack behavior and encapsulate only data. The business rules and operations are typically implemented
-            in separate service layers.</p>
-        <p>Firstly, I want to note that ADM is not limited to domain-driven designed systems; it applies to any
-            object-oriented system. As Martin Fowler stated, “<em>The fundamental horror of this anti-pattern is
-                that it’s so contrary to the basic idea of object-oriented design, which is to combine data and
-                process together.</em>” Separating behavior from data leads to a lack of cohesion between them
-            and reduced data encapsulation.</p>
-        <p>Also, it’s essential to highlight that there are cases where a simple data structure is sufficient,
-            e.g. data transfer object (DTO). It is also OK to implement it in case of very simple business logic
-            (Active Record Pattern).</p>
-        <p>ADM is characterized by the following aspects:</p>
-        <ul>
-            <li>Anemic domain objects are typically data structures without any behavior, often mirroring
-                database tables.
-            </li>
-            <li>Business logic is spread across various layers, leading to a lack of expressiveness in the
-                class. The service layer becomes bloated as the model delegates work on its properties to the
-                service layer.
-            </li>
-            <li>Domain objects are often tightly coupled with service layers, violating encapsulation and
-                separation of concerns.
-            </li>
-            <li>OOD principles are violated. In extreme cases, services are simply a set of methods and then the
-                system becomes procedural.
-            </li>
-        </ul>
-        <p>Drawbacks of the Anemic Domain Model:</p>
-        <ul>
-            <li>Reduced data encapsulation. By separating behavior from domain objects, we are forced to open up
-                the attributes of the model for modification by the service layer. In addition to the redundant
-                propagation of knowledge about model attributes, this can lead to the existence of invalid
-                instances in the runtime. In turn, this leads to a spreading of validations and checks in the
-                components working with the object.
-            </li>
-            <li>Decreased maintainability, increased complexity, and limited expressiveness. With business logic
-                scattered across different layers, making changes or adding new features becomes more complex
-                and error-prone; as well as understanding the model.
-            </li>
-        </ul>
-        <p>Why does the anemic model matter?</p>
-        <ul>
-            <li>A rich domain model may introduce performance overhead due to defensive copying in the case of
-                immutable models and repetitive validations. Some can be mitigated.
-            </li>
-            <li>Rich domain models may have compatibility issues with frameworks, particularly in mapping.</li>
-            <li>Developing a correct model is a challenging task. Sometimes using an anemic model is a
-                reasonable compromise.
-            </li>
-        </ul>
-        <p>How to avoid it?</p>
-        <ul>
-            <li>Follow the OO design principles.</li>
-            <li>Consider using private setters for your properties. This way you do not have to rely on external
-                validations.
-            </li>
-            <li>Use constructors with parameters. It’s essential to check passed parameters to initialize an
-                object in the valid state.
-            </li>
-        </ul>
-    </article>
-</main>
+        <div>
+            <h1 class="title">Anemic Domain Model Pattern</h1>
+            <time datetime="2023-06-02T00:00:00.000Z">2 June 2023</time>
+        </div>
+        <article class="posts-article">
+            <p>The Anemic Domain Model (ADM) refers to a very common anti-pattern where the domain model objects
+                lack behavior and encapsulate only data. The business rules and operations are typically implemented
+                in separate service layers.</p>
+            <p>Firstly, I want to note that ADM is not limited to domain-driven designed systems; it applies to any
+                object-oriented system. As Martin Fowler stated, “<em>The fundamental horror of this anti-pattern is
+                    that it’s so contrary to the basic idea of object-oriented design, which is to combine data and
+                    process together.</em>” Separating behavior from data leads to a lack of cohesion between them
+                and reduced data encapsulation.</p>
+            <p>Also, it’s essential to highlight that there are cases where a simple data structure is sufficient,
+                e.g. data transfer object (DTO). It is also OK to implement it in case of very simple business logic
+                (Active Record Pattern).</p>
+            <p>ADM is characterized by the following aspects:</p>
+            <ul>
+                <li>Anemic domain objects are typically data structures without any behavior, often mirroring
+                    database tables.
+                </li>
+                <li>Business logic is spread across various layers, leading to a lack of expressiveness in the
+                    class. The service layer becomes bloated as the model delegates work on its properties to the
+                    service layer.
+                </li>
+                <li>Domain objects are often tightly coupled with service layers, violating encapsulation and
+                    separation of concerns.
+                </li>
+                <li>OOD principles are violated. In extreme cases, services are simply a set of methods and then the
+                    system becomes procedural.
+                </li>
+            </ul>
+            <p>Drawbacks of the Anemic Domain Model:</p>
+            <ul>
+                <li>Reduced data encapsulation. By separating behavior from domain objects, we are forced to open up
+                    the attributes of the model for modification by the service layer. In addition to the redundant
+                    propagation of knowledge about model attributes, this can lead to the existence of invalid
+                    instances in the runtime. In turn, this leads to a spreading of validations and checks in the
+                    components working with the object.
+                </li>
+                <li>Decreased maintainability, increased complexity, and limited expressiveness. With business logic
+                    scattered across different layers, making changes or adding new features becomes more complex
+                    and error-prone; as well as understanding the model.
+                </li>
+            </ul>
+            <p>Why does the anemic model matter?</p>
+            <ul>
+                <li>A rich domain model may introduce performance overhead due to defensive copying in the case of
+                    immutable models and repetitive validations. Some can be mitigated.
+                </li>
+                <li>Rich domain models may have compatibility issues with frameworks, particularly in mapping.</li>
+                <li>Developing a correct model is a challenging task. Sometimes using an anemic model is a
+                    reasonable compromise.
+                </li>
+            </ul>
+            <p>How to avoid it?</p>
+            <ul>
+                <li>Follow the OO design principles.</li>
+                <li>Consider using private setters for your properties. This way you do not have to rely on external
+                    validations.
+                </li>
+                <li>Use constructors with parameters. It’s essential to check passed parameters to initialize an
+                    object in the valid state.
+                </li>
+            </ul>
+        </article>
 
+    </section>
+</content-component>
 <footer-component></footer-component>
-
 </body>
+
 </html>
