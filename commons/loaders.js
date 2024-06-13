@@ -1,4 +1,4 @@
-function injectHead(url) {
+function _injectHead(url) {
     fetch(url)
         .then(response => response.text())
         .then(data => {
@@ -7,7 +7,7 @@ function injectHead(url) {
         .catch(error => console.error('Error loading head content:', error));
 }
 
-function injectHtml(url, elementId) {
+function _injectHtml(url, elementId) {
     fetch(url)
         .then(response => response.text())
         .then(data => {
@@ -16,12 +16,12 @@ function injectHtml(url, elementId) {
         .catch(error => console.error('Error loading HTML:', error));
 }
 
-function injectCommonsOnLoad(path) {
+function _injectCommonsOnLoad(path) {
     document.addEventListener("DOMContentLoaded", function() {
-        injectHead(path + '/head.html');
-        injectHtml(path + '/header.html', 'header');
-        injectHtml(path + '/footer.html', 'footer');
+        _injectHead(path + '/head.html');
+        _injectHtml(path + '/header.html', 'header');
+        _injectHtml(path + '/footer.html', 'footer');
     });
 }
 
-injectCommonsOnLoad('components');
+_injectCommonsOnLoad('commons');
