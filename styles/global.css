@@ -39,3 +39,7 @@ a {
 ul {
     list-style-type: none;
 }
+
+pre {
+    overflow-x: auto;
+}

@@ -21,11 +21,10 @@
 
 .header-menu {
     top: 3.5rem;
-    row-gap: 1rem;
 }
 
 .header-menu-entity {
-	padding: 1rem;
+	padding: 0.5rem;
 	&:hover {
 	    text-decoration-line: underline;
     }
