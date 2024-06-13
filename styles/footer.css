@@ -2,7 +2,6 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    color: #777;
     font-size: 0.75rem;
 
     @media (max-width: 640px) {
@@ -10,20 +9,28 @@
     }
 }
 
+
 .footer-copyright {
 }
 
-.footer-menu {
-}
-
-.footer-menu-entity {
-	padding: 0.5rem;
-	&:hover {
-	    text-decoration-line: underline;
-    }
-}
 
 .footer-contacts {
+    display: flex;
+    justify-content: center;
+    margin: 20px 0;
+}
+
+.footer-contacts-list {
+    display: flex;
+    gap: 0.5rem;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-contacts-entity {
+    padding: 0.5rem;
+    display: flex;
+    align-items: center;
 }
 
 .footer-contacts-icon {
@@ -31,12 +38,16 @@
     height: 1rem;
 }
 
-.footer-contacts-list {
+
+.footer-menu {
     display: flex;
-    align-items: center;
-    justify-content: space-between;
+    gap: 0.5rem;
+    justify-content: center;
 }
 
-.footer-contacts-entity {
-    padding: 0.5rem;
+.footer-menu-entity {
+	padding: 0.5rem;
+	&:hover {
+	    text-decoration-line: underline;
+    }
 }

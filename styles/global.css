@@ -1,11 +1,17 @@
+:root {
+    --text-color: #111;
+    --text-light-color: #777;
+    --text-accent-color: #cc2a42;
+}
+
 html body {
+	display: flex;
+	flex-direction: column;
 	margin-left: auto;
 	margin-right: auto;
-	display: flex;
 	scroll-behavior: smooth;
 	height: 100%;
 	max-width: 48rem;
-	flex-direction: column;
 	padding-left: 2rem;
 	padding-right: 2rem;
 	padding-top: 4rem;
@@ -13,15 +19,14 @@ html body {
 	font-size: .875rem;
 	line-height: 1.25rem;
 	font-weight: 400;
+	color: var(--text-color);
 }
 
 a {
-    color: #777;
-    text-decoration: none;
-
+    color: var(--text-color);
+    text-decoration-line: underline;
     &:hover {
-        color: #cc2a42; /* Darker color on hover */
-        text-decoration: underline; /* Underline on hover */
+        color: var(--text-accent-color);
     }
 }
 
@@ -30,7 +35,7 @@ ul {
 }
 
 .text-accent {
-    color: #cc2a42;
+    color: var(--text-accent-color);
 }
 
 .text-light {
@@ -42,13 +47,6 @@ ul {
 	line-height: 2rem;
 	font-weight: 600;
 	margin-bottom: 1.5rem;
-}
-
-.link {
-    text-decoration-line: underline;
-    &:hover {
-	    text-decoration-line: none;
-    }
 }
 
 .main-content {
