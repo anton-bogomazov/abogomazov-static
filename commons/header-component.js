@@ -40,7 +40,7 @@ createWebComponent(
     <header>
         <div id="header-title">
             <p class="text-larger">Anton Bogomazov</p>
-            <p class="text-large">Software Engineer</p>
+            <p class="text-large" style="font-weight: 500">Software Engineer</p>
         </div>
         <nav id="navigation-menu" aria-label="Main menu">
             <a class="header-menu-entity" href="index.html" rel="prefetch">Home</a>

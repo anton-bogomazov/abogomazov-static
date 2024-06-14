@@ -43,6 +43,14 @@ createWebComponent(
                 width: 1rem;
                 height: 1rem;
             }
+
+            a {
+                color: var(--text-color);
+                text-decoration-line: underline;
+                &:hover {
+                    color: var(--text-accent-color);
+                }
+            }
         }
     </style>
 

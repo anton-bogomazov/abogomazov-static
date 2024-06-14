@@ -3,7 +3,7 @@
     --text-light-color: #777;
     --text-accent-color: #cc2a42;
     --text-small-size: 0.75rem;
-    --text-regular-size: 0.875rem;
+    --text-regular-size: 1rem;
     --text-large-size: 1.5rem;
     --text-larger-size: 2rem;
 }
@@ -29,10 +29,10 @@ html body {
 }
 
 a {
-    color: var(--text-color);
+    color: var(--text-accent-color);
     text-decoration-line: underline;
     &:hover {
-        color: var(--text-accent-color);
+        color: var(--text-color);
     }
 }
 
@@ -45,10 +45,16 @@ pre {
 }
 
 h1 {
-	font-size: 1.5rem;
+	font-size: var(--text-larger-size);
 	line-height: 2rem;
 	font-weight: 600;
 	margin-bottom: 1.5rem;
+}
+
+h2 {
+	font-size: var(--text-large-size);
+	margin-bottom: 1rem;
+	font-weight: 500;
 }
 
 main {
