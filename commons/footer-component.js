@@ -31,6 +31,7 @@ createWebComponent(
                 gap: 1.5rem;
                 padding: 0;
                 margin: 0;
+                list-style-type: none;
             }
 
             li {
