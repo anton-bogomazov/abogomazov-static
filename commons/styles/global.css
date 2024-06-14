@@ -69,15 +69,3 @@ main {
 .text-light {
     color: var(--text-light-color);
 }
-
-.text-large {
-    font-size: var(--text-large-size);
-}
-
-.text-larger {
-    font-size: var(--text-larger-size);
-}
-
-.text-small {
-    font-size: var(--text-small-size);
-}

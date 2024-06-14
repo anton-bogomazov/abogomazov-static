@@ -39,8 +39,8 @@ createWebComponent(
 
     <header>
         <div id="header-title">
-            <p class="text-larger">Anton Bogomazov</p>
-            <p class="text-large" style="font-weight: 500">Software Engineer</p>
+            <p style="font-size: var(--text-larger-size)">Anton Bogomazov</p>
+            <p style="font-size: var(--text-large-size); font-weight: 500">Software Engineer</p>
         </div>
         <nav id="navigation-menu" aria-label="Main menu">
             <a class="header-menu-entity" href="index.html" rel="prefetch">Home</a>
