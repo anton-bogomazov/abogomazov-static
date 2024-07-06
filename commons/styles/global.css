@@ -96,6 +96,6 @@ h2 {
     }
 }
 
-content-component {
-  animation: 0.1s fade-in;
+* {
+  animation: 0.25s fade-in;
 }
