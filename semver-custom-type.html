@@ -50,6 +50,8 @@
                 One minor drawback I consider in my solution is the unsafe handling of Postgres types, caused by the fact that the Postgres driver is a runtimeOnly dependency.
             </p>
 
+            <p class="text-accent">Check the example project on <a href="https://github.com/anton-bogomazov/semver-pg-type">github</a></p>
+
             <p>
                 Now let’s see how to do this using the example of the Release entity, which represents a description of a new release and includes a version in Semver format.
                 Let’s start with a basic test for saving the entity and its naive implementation:
