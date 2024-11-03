@@ -45,7 +45,6 @@ createWebComponent(
         <nav id="navigation-menu" aria-label="Main menu">
             <a class="header-menu-entity" href="index.html" rel="prefetch">Home</a>
             <a class="header-menu-entity" href="experience.html" rel="prefetch">Experience</a>
-            <a class="header-menu-entity" href="posts.html" rel="prefetch">Blog</a>
             <a class="header-menu-entity" href="assets/cv.pdf" download="Software Engineer - Anton Bogomazov.pdf">CV</a>
         </nav>
     </header>

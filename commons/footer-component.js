@@ -104,7 +104,6 @@ createWebComponent(
         <nav aria-label="More on this site">
             <a href="index.html">Home</a>
             <a href="experience.html">Experience</a>
-            <a href="posts.html">Blog</a>
         </nav>
 
     </footer>
