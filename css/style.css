@@ -1,0 +1,164 @@
+:root {
+    --line-width: 65ch;
+    --border-thin: 0rem;
+    --header-padding: clamp(1.5rem, 2vw, 6rem);
+    --main-padding: clamp(2rem, 6vw, 10rem);
+    --space: 1rem;
+
+    --text-color: #111;
+    --text-light-color: #444;
+    --text-lighter-color: #777;
+    --text-accent-color: #cc2a42;
+
+    --small-size: clamp(0.75rem, 1vw, 0.875rem);
+    --regular-size: clamp(1rem, 2vw, 1.25rem);
+    --large-size: clamp(1.35rem, 3vw, 1.75rem);
+    --larger-size: clamp(1.75rem, 4vw, 2rem);
+    --largest-size: clamp(2rem, 5vw, 2.5rem);
+
+    --text-light: 300;
+    --text-normal: 400;
+    --text-heavy: 600;
+    --text-heavier: 700;
+
+    --line-normal: 1.5;
+    --line-high: 1.75;
+    --line-higher: 2;
+}
+
+main {
+    padding: var(--main-padding);
+    padding-top: 0;
+}
+
+header {
+    padding: var(--header-padding);
+}
+
+html * {
+    scroll-behavior: smooth;
+
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: var(--regular-size);
+    line-height: var(--line-normal);
+    color: var(--text-color);
+}
+
+h1 {
+    font-size: var(--largest-size);
+    line-height: var(--line-normal);
+    font-weight: var(--text-heavier);
+    margin-block: 0;
+}
+
+.subheader {
+    color: var(--text-light-color);
+    font-size: var(--larger-size);
+    line-height: var(--line-high);
+    font-weight: var(--text-heavy);
+    margin-block: 0;
+}
+
+h2 {
+    font-size: var(--large-size);
+    line-height: var(--line-high);
+    font-weight: var(--text-heavy);
+    margin-block: 0;
+}
+
+h2:before {
+    content: "# ";
+    color: var(--text-accent-color);
+}
+
+h3 {
+    font-size: var(--regular-size);
+    line-height: var(--line-high);
+    font-weight: var(--text-heavy);
+    margin-block: 0;
+}
+
+p {
+    font-size: var(--regular-size);
+    line-height: var(--line-normal);
+
+    max-inline-size: var(--line-width);
+}
+
+.stack {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+.stack > * {
+  margin-block: 0;
+}
+
+.stack > * + * {
+  margin-block-start: var(--space, 1.5rem);
+}
+
+.cluster {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space, 1rem);
+  justify-content: center;
+  align-items: center;
+}
+
+.center {
+    box-sizing: content-box;
+    margin-inline: auto;
+    max-inline-size: var(--line-width);
+}
+
+.box {
+    padding: var(--regular-size);
+    border: var(--border-thin) solid;
+    --color-light: #fff;
+    --color-dark: #000;
+    color: var(--color-dark);
+    background-color: var(--color-light);
+}
+
+.border\:thick {
+    --border-thin: var(--small-size);
+}
+
+.box * {
+  color: inherit;
+}
+
+.box.invert {
+  color: var(--color-light);
+  background-color: var(--color-dark);
+}
+
+a:hover {
+    color: var(--text-accent-color);
+}
+
+a {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.center-text {
+    text-align: center;
+}
+
+ul {
+    padding-left: var(--large-size);
+    margin-bottom: 0;
+}
+
+li {
+    margin-bottom: 0.75em;
+    line-height: var(--line-normal);
+}
+
+ul li::marker {
+    font-weight: bold;
+}
