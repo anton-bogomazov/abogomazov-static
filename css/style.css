@@ -85,6 +85,10 @@ p {
     max-inline-size: var(--line-width);
 }
 
+.subtitle-time {
+    margin-top: 0;
+}
+
 .stack {
     display: flex;
     flex-direction: column;
