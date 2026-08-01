@@ -33,12 +33,10 @@ def process_post(filename, post_template):
     out_filepath = os.path.join(HTML_POSTS_DIR, out_filename)
 
     date_str = date.strftime('%Y-%m-%d') if isinstance(date, datetime) else str(date)
-    tags_html = "".join([f'<span class="tag">#{tag}</span>' for tag in tags])
 
     final_html = post_template.format(
         title=title,
         date_str=date_str,
-        tags_html=tags_html,
         content=html_content
     )
 

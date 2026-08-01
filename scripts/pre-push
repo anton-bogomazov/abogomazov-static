@@ -1,6 +1,6 @@
 #!/bin/bash
 
-./gen-blog-posts
+./scripts/gen-blog-posts
 
 if [ $? -ne 0 ]; then
     echo "Whoops! Generation has failed."
