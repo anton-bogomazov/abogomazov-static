@@ -1,0 +1,15 @@
+#!/bin/bash
+
+./gen-blog-posts.sh
+
+if [ $? -ne 0 ]; then
+    echo "Whoops! Generation has failed."
+    exit 1
+fi
+
+if [[ -n $(git status --porcelain blog/) ]]; then
+    git add blog/
+    git commit -m "[auto] add generated blog posts"
+fi
+
+exit 0
