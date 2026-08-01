@@ -9,9 +9,9 @@ First post - and I want to share how I actually put that page on the internet.
 
 A blog is a problem that’s been solved a thousand times over, yet most of these solutions just don't work for me. 
 If you google “how to start a blog”, you'll stumble upon the following options:
-- **Platforms:** They cost money and require learning. Total overkill. While solving one problem, they create several new ones imo.
-- **Static Site Generators + Jekyll / Hugo / Astro:** Much better, but still packed with way too many features.
-- **Client + server / WordPress:** Requires setting up and maintaining a server. Hard pass.
+* **Platforms:** They cost money and require learning. Total overkill. While solving one problem, they create several new ones imo.
+* **Static Site Generators + Jekyll / Hugo / Astro:** Much better, but still packed with way too many features.
+* **Client + server / WordPress:** Requires setting up and maintaining a server. Hard pass.
 
 I already have a static website with a delivery pipeline set up. It’s just pure HTML and some CSS—something I’m honestly quite proud of, and I really wouldn't want to overcomplicate it. I want to write my posts in Markdown; it’s a familiar, comfortable, and portable format. So, out of all the variety, only static site generators really fit.
 
