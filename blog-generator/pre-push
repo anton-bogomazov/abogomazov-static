@@ -8,7 +8,7 @@ if [ $? -ne 0 ]; then
 fi
 
 if [[ -n $(git status --porcelain blog/) ]]; then
-    git add blog/**/*.html
+    git add blog/index.html blog/**/*.html
     git commit -m "[auto] add generated blog posts"
 fi
 
