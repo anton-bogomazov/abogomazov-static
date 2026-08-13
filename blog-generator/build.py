@@ -32,17 +32,23 @@ def process_post(filename, post_template):
 
     out_filepath = os.path.join(HTML_POSTS_DIR, out_filename)
 
+    # todo center the text
     date_str = date.strftime('%Y-%m-%d') if isinstance(date, datetime) else str(date)
+    ai_disclaimer = '''<section class="box border:thick stack center"><p>This post was written by an AI based on my notes and thoughts on the subject. I read through it using my human brain and decided it was good enough to share.
+Since I was too lazy to write this text myself, I respect the right of anyone who is too lazy to read it because it was written by an AI.</p></section>'''
+    is_ai_used = post.get('ai-used', default=False)
 
     final_html = post_template.format(
         title=title,
         date_str=date_str,
+        ai_used_disclaimer=ai_disclaimer if is_ai_used else '',
         content=html_content
     )
 
     final_html = final_html.replace('href="style.css"', 'href="../../css/style.css"')
     pretty_html = prettify_html(final_html)
 
+# todo refactor to prepare data and write it sequentially (basically make that fun pure)
     with open(out_filepath, 'w', encoding='utf-8') as f:
         f.write(pretty_html)
 
@@ -53,7 +59,7 @@ def process_post(filename, post_template):
         'date': date,
         'url': f"{HTML_POSTS_DIR_NAME}/{out_filename}",
         'summary': summary,
-        'tags': tags
+        'tags': tags,
     }
 
 def prettify_html(html_string):
@@ -76,6 +82,7 @@ def generate_blog_index(posts_list, blog_template, preview_template):
     )
 
     page_html = page_html.replace('href="style.css"', 'href="../css/style.css"')
+    page_html = page_html.replace('src="script.js"', 'src="../css/append-parallax-props.js"')
     pretty_html = prettify_html(page_html)
 
     out_path = os.path.join(OUTPUT_DIR, 'index.html')

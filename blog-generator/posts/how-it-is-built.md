@@ -3,6 +3,7 @@ title: "DIY static blog generator"
 date: 2026-08-01
 tags: [diy, web]
 draft: false
+ai-used: true
 summary: "A short story about me trying not to use ready-made solutions."
 ---
 First post - and I want to share how I actually put that page on the internet.

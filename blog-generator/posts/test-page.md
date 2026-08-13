@@ -3,6 +3,7 @@ title: "Testing Layout and Formatting Elements"
 date: 2026-08-01
 tags: [test, layout, markdown]
 draft: false
+ai-used: true
 summary: "This is a test page showcasing various HTML and Markdown layout elements, formatting options, and image alignments."
 ---
 
