@@ -9,6 +9,7 @@
     --text-light-color: #444;
     --text-lighter-color: #777;
     --text-accent-color: #cc2a42;
+    --text-color-invert: white;
 
     --small-size: clamp(0.75rem, 1vw, 0.875rem);
     --regular-size: clamp(1rem, 2vw, 1.25rem);
@@ -64,11 +65,6 @@ h2 {
     line-height: var(--line-high);
     font-weight: var(--text-heavy);
     margin-block: 0;
-}
-
-h2:before {
-    content: "# ";
-    color: var(--text-accent-color);
 }
 
 h3 {
@@ -166,4 +162,55 @@ li {
 
 ul li::marker {
     font-weight: bold;
+}
+
+
+.parallax-text {
+  --front-letter-spacing: 0.1em;
+
+/* vertical and horizontal positions of the foreground text relative to the background */
+  --v-pos: -0.1em;
+  --h-pos: 0em;
+  /* it's a bit hard to explain - better just try it out
+  basically it changes spacing of the background text; used to calc spacing-mod */
+  --depth: 10;
+/* how big the background text is. Try values in range 0..10 */
+  --scale-delta: 6;
+
+/* back and foreground text colors - should depend on global design schema*/
+  --bg-color: var(--text-color);
+  --front-color: var(--text-color-invert);
+
+  /* default is a sweet spot. override for extreme values (start with 0.85) */
+  --spacing-mod: calc(1 / (1 + (1/(var(--char-count, 1) - 1) * (var(--depth) / 10))));
+/* how massive the background text is. high values cause rendering artifacts (sometimes good) */
+  --stroke-width: 0.3em;
+
+  position: relative;
+
+  font-weight: var(--text-heavy);
+  text-transform: uppercase;
+
+  color: var(--front-color);
+  line-height: var(--front-line-height);
+  letter-spacing: var(--front-letter-spacing);
+}
+
+.parallax-text::before {
+  content: attr(data-text);
+  position: absolute;
+  z-index: -1;
+  pointer-events: none;
+
+  color: var(--bg-color);
+  -webkit-text-stroke: var(--stroke-width) var(--bg-color);
+
+  transform: scale(calc(1 + var(--scale-delta) / 100));
+
+  letter-spacing: calc(var(--front-letter-spacing) * var(--spacing-mod));
+
+  top: var(--v-pos);
+  left: calc(
+    var(--h-pos) - (var(--front-letter-spacing) * (var(--spacing-mod) - 1) * (var(--char-count, 1) - 1) / 2)
+  );
 }
