@@ -1,15 +1,24 @@
 :root {
+  --color-dark: #111111;
+  --color-gray-dark: #444444;
+  --color-gray-light: #777777;
+  --color-accent: #cc2a42;
+  --color-white: #ffffff;
+}
+
+:root {
     --line-width: 65ch;
     --border-thin: 0rem;
     --header-padding: clamp(1.5rem, 2vw, 6rem);
     --main-padding: clamp(2rem, 6vw, 10rem);
     --space: 1rem;
 
-    --text-color: #111;
-    --text-light-color: #444;
-    --text-lighter-color: #777;
-    --text-accent-color: #cc2a42;
-    --text-color-invert: white;
+    --bg-color: transparent;
+    --text-color: var(--color-dark);
+    --text-light-color: var(--color-gray-dark);
+    --text-lighter-color: var(--color-gray-light);
+    --text-accent-color: var(--color-accent);
+    --text-color-invert: var(--color-white);
 
     --small-size: clamp(0.75rem, 1vw, 0.875rem);
     --regular-size: clamp(1rem, 2vw, 1.25rem);
@@ -34,6 +43,22 @@ main {
 
 header {
     padding: var(--header-padding);
+}
+
+/* todo color schema is far from great */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg-color: var(--color-dark);
+    --text-color: var(--color-white);
+    --text-light-color: var(--color-gray-light);
+    --text-lighter-color: var(--color-gray-dark);
+    --text-accent-color: var(--color-accent);
+    --text-color-invert: var(--color-dark);
+  }
+
+  html {
+    background-color: var(--bg-color);
+  }
 }
 
 html * {
@@ -117,10 +142,9 @@ p {
 .box {
     padding: var(--regular-size);
     border: var(--border-thin) solid;
-    --color-light: #fff;
-    --color-dark: #000;
-    color: var(--color-dark);
-    background-color: var(--color-light);
+    /* todo refactor me: do not use text color for bg color */
+    color: var(--text-color);
+    background-color: var(--text-color-invert);
 }
 
 .border\:thick {
@@ -132,8 +156,9 @@ p {
 }
 
 .box.invert {
-  color: var(--color-light);
-  background-color: var(--color-dark);
+/* todo refactor me: do not use text color for bg color */
+  color: var(--text-color-invert);
+  background-color: var(--text-color);
 }
 
 a:hover {
@@ -178,7 +203,7 @@ ul li::marker {
   --scale-delta: 6;
 
 /* back and foreground text colors - should depend on global design schema*/
-  --bg-color: var(--text-color);
+  --bg-text-color: var(--text-color);
   --front-color: var(--text-color-invert);
 
   /* default is a sweet spot. override for extreme values (start with 0.85) */
@@ -202,8 +227,8 @@ ul li::marker {
   z-index: -1;
   pointer-events: none;
 
-  color: var(--bg-color);
-  -webkit-text-stroke: var(--stroke-width) var(--bg-color);
+  color: var(--bg-text-color);
+  -webkit-text-stroke: var(--stroke-width) var(--bg-text-color);
 
   transform: scale(calc(1 + var(--scale-delta) / 100));
 
