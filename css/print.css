@@ -113,10 +113,12 @@ button {
     border: 1pt solid black !important;
 }
 
-#contact-me {
-    display: none;
+#contact-me-print-only {
+    display: block !important;
 }
 
+#contact-me,
+#print-cv,
 #download-cv {
     display: none;
 }
