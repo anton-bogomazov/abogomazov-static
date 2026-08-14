@@ -189,6 +189,11 @@ ul li::marker {
     font-weight: bold;
 }
 
+img {
+  max-width: 100%;
+  height: auto;
+}
+
 
 .parallax-text {
   --front-spacing: 0.12em;
