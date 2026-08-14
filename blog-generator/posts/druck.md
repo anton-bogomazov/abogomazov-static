@@ -7,7 +7,7 @@ ai-used: false
 summary: "Playing around with block shadowing and parallax"
 ---
 
-Earlier, I got the idea of placing the letter D inside a bigger letter D centred vertically. It was so visually appealing in my head, so I decided to play around with the idea.
+Earlier, I got the idea of placing the letter D inside a bigger letter D centred vertically. It was so visually appealing in my head, so I decided to play around it.
 
 <img src="../../assets/images/2/1.jpeg" alt="Graphic design preview showing three variations of text layering on the word DRUCK">
 
