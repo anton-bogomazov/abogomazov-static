@@ -191,34 +191,33 @@ ul li::marker {
 
 
 .parallax-text {
-  --front-letter-spacing: 0.1em;
+  --front-spacing: 0.12em;
+  --bg-spacing: 0.2em;
 
-/* vertical and horizontal positions of the foreground text relative to the background */
-  --v-pos: -0.1em;
-  --h-pos: 0em;
-  /* it's a bit hard to explain - better just try it out
-  basically it changes spacing of the background text; used to calc spacing-mod */
-  --depth: 10;
-/* how big the background text is. Try values in range 0..10 */
-  --scale-delta: 6;
+  --bg-scale: 1.06;
 
-/* back and foreground text colors - should depend on global design schema*/
-  --bg-text-color: var(--text-color);
-  --front-color: var(--text-color-invert);
+  --offset-x: 0em;
+  --offset-y: 0em;
 
-  /* default is a sweet spot. override for extreme values (start with 0.85) */
-  --spacing-mod: calc(1 / (1 + (1/(var(--char-count, 1) - 1) * (var(--depth) / 10))));
-/* how massive the background text is. high values cause rendering artifacts (sometimes good) */
   --stroke-width: 0.3em;
 
+  --bg-color: var(--text-color);
+  --front-color: var(--text-color-invert);
+
   position: relative;
+  width: fit-content;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
 
   font-weight: var(--text-heavy);
   text-transform: uppercase;
 
   color: var(--front-color);
   line-height: var(--front-line-height);
-  letter-spacing: var(--front-letter-spacing);
+  letter-spacing: var(--front-spacing);
+
+  text-decoration: none;
 }
 
 .parallax-text::before {
@@ -227,15 +226,16 @@ ul li::marker {
   z-index: -1;
   pointer-events: none;
 
-  color: var(--bg-text-color);
-  -webkit-text-stroke: var(--stroke-width) var(--bg-text-color);
+  top: 50%;
+  left: 50%;
 
-  transform: scale(calc(1 + var(--scale-delta) / 100));
+  transform: translate(
+    calc(-50% + var(--offset-x)),
+    calc(-50% + var(--offset-y))
+  ) scale(var(--bg-scale));
 
-  letter-spacing: calc(var(--front-letter-spacing) * var(--spacing-mod));
+  color: var(--bg-color);
+  -webkit-text-stroke: var(--stroke-width) var(--bg-color);
 
-  top: var(--v-pos);
-  left: calc(
-    var(--h-pos) - (var(--front-letter-spacing) * (var(--spacing-mod) - 1) * (var(--char-count, 1) - 1) / 2)
-  );
+  letter-spacing: var(--bg-spacing);
 }
