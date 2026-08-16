@@ -196,15 +196,15 @@ img {
 
 
 .parallax-text {
-  --front-spacing: 0.12em;
+  --front-spacing: 0.14em;
   --bg-spacing: 0.2em;
 
-  --bg-scale: 1.06;
+  --bg-scale: 0.8;
 
   --offset-x: 0em;
   --offset-y: 0em;
 
-  --stroke-width: 0.3em;
+  --stroke-width: 0.5em;
 
   --bg-color: var(--text-color);
   --front-color: var(--text-color-invert);
