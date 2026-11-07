@@ -4,36 +4,34 @@
   --color-gray-light: #777777;
   --color-accent: #cc2a42;
   --color-white: #ffffff;
-}
 
-:root {
-    --line-width: 65ch;
-    --border-thin: 0rem;
-    --header-padding: clamp(1.5rem, 2vw, 6rem);
-    --main-padding: clamp(2rem, 6vw, 10rem);
-    --space: 1rem;
+  --line-width: 65ch;
+  --border-thin: 0rem;
+  --header-padding: clamp(1.5rem, 2vw, 6rem);
+  --main-padding: clamp(2rem, 6vw, 10rem);
+  --space: 1rem;
 
-    --bg-color: transparent;
-    --text-color: var(--color-dark);
-    --text-light-color: var(--color-gray-dark);
-    --text-lighter-color: var(--color-gray-light);
-    --text-accent-color: var(--color-accent);
-    --text-color-invert: var(--color-white);
+  --bg-color: transparent;
+  --text-color: var(--color-dark);
+  --text-light-color: var(--color-gray-dark);
+  --text-lighter-color: var(--color-gray-light);
+  --text-accent-color: var(--color-accent);
+  --text-color-invert: var(--color-white);
 
-    --small-size: clamp(0.75rem, 1vw, 0.875rem);
-    --regular-size: clamp(1rem, 2vw, 1.25rem);
-    --large-size: clamp(1.35rem, 3vw, 1.75rem);
-    --larger-size: clamp(1.75rem, 4vw, 2rem);
-    --largest-size: clamp(2rem, 5vw, 2.5rem);
+  --small-size: clamp(0.75rem, 1vw, 0.875rem);
+  --regular-size: clamp(1rem, 2vw, 1.25rem);
+  --large-size: clamp(1.35rem, 3vw, 1.75rem);
+  --larger-size: clamp(1.75rem, 4vw, 2rem);
+  --largest-size: clamp(2rem, 5vw, 2.5rem);
 
-    --text-light: 300;
-    --text-normal: 400;
-    --text-heavy: 600;
-    --text-heavier: 700;
+  --text-light: 300;
+  --text-normal: 400;
+  --text-heavy: 600;
+  --text-heavier: 700;
 
-    --line-normal: 1.5;
-    --line-high: 1.75;
-    --line-higher: 2;
+  --line-normal: 1.5;
+  --line-high: 1.75;
+  --line-higher: 2;
 }
 
 main {
@@ -61,9 +59,11 @@ header {
   }
 }
 
-html * {
+html {
     scroll-behavior: smooth;
+}
 
+body {
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
     font-size: var(--regular-size);
     line-height: var(--line-normal);
@@ -166,6 +166,12 @@ button:hover {
     color: var(--text-accent-color);
 }
 
+a:focus-visible,
+button:focus-visible {
+    outline: 2px solid var(--text-accent-color);
+    outline-offset: 2px;
+}
+
 a,
 button {
     display: inline-flex;
@@ -185,6 +191,10 @@ button {
 
 .center-text {
     text-align: center;
+}
+
+.print-only {
+    display: none;
 }
 
 ul {

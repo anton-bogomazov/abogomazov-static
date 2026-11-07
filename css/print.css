@@ -80,12 +80,14 @@ header h1 {
     display: none !important;
 }
 
+.print-only,
 #contact-me-print-only {
     display: block !important;
     margin: 0 0 6pt 0 !important;
     text-align: center !important;
 }
 
+.print-only p,
 #contact-me-print-only p {
     font-size: 8.5pt !important;
     color: #444 !important;
