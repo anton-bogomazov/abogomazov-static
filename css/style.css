@@ -161,14 +161,26 @@ p {
   background-color: var(--text-color);
 }
 
-a:hover {
+a:hover,
+button:hover {
     color: var(--text-accent-color);
 }
 
-a {
+a,
+button {
     display: inline-flex;
     align-items: center;
     gap: 0.5rem;
+}
+
+button {
+    cursor: pointer;
+    background: transparent;
+    border: none;
+    padding: 0;
+    font: inherit;
+    color: var(--text-color);
+    text-decoration: underline;
 }
 
 .center-text {

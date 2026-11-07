@@ -3,13 +3,25 @@
 ./scripts/gen-blog-posts
 
 if [ $? -ne 0 ]; then
-    echo "Whoops! Generation has failed."
+    echo "Whoops! Blog generation has failed."
     exit 1
 fi
 
 if [[ -n $(git status --porcelain blog/) ]]; then
     git add blog/index.html blog/**/*.html
     git commit -m "[auto] add generated blog posts"
+fi
+
+./scripts/gen-cv-pdf
+
+if [ $? -ne 0 ]; then
+    echo "Whoops! CV PDF generation has failed."
+    exit 1
+fi
+
+if [[ -n $(git status --porcelain assets/cv.pdf) ]]; then
+    git add assets/cv.pdf
+    git commit -m "[auto] update generated cv pdf"
 fi
 
 exit 0
