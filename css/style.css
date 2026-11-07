@@ -43,6 +43,13 @@ header {
     padding: var(--header-padding);
 }
 
+nav {
+    display: flex;
+    align-items: center;
+    gap: var(--space);
+    margin-bottom: var(--space);
+}
+
 /* todo color schema is far from great */
 @media (prefers-color-scheme: dark) {
   :root {
@@ -187,6 +194,30 @@ button {
     font: inherit;
     color: var(--text-color);
     text-decoration: underline;
+}
+
+.actions-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.actions-group {
+    display: flex;
+    align-items: center;
+    gap: var(--space, 1rem);
+}
+
+.actions-bar a,
+.actions-bar button {
+    color: var(--text-color);
+    text-decoration: underline;
+}
+
+.actions-bar a:hover,
+.actions-bar button:hover {
+    color: var(--text-color);
 }
 
 .center-text {

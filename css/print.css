@@ -191,6 +191,7 @@ nav,
 .no-print,
 button,
 #contact-me,
+#back-home,
 #print-cv,
 #download-cv {
     display: none !important;
