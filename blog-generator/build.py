@@ -82,7 +82,6 @@ def generate_blog_index(posts_list, blog_template, preview_template):
     )
 
     page_html = page_html.replace('href="style.css"', 'href="../css/style.css"')
-    page_html = page_html.replace('src="script.js"', 'src="../css/append-parallax-props.js"')
     pretty_html = prettify_html(page_html)
 
     out_path = os.path.join(OUTPUT_DIR, 'index.html')
