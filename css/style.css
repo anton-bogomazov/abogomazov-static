@@ -47,7 +47,6 @@ nav {
     display: flex;
     align-items: center;
     gap: var(--space);
-    margin-bottom: var(--space);
 }
 
 /* todo color schema is far from great */
@@ -168,9 +167,12 @@ p {
   background-color: var(--text-color);
 }
 
+a,
+a:visited,
 a:hover,
-button:hover {
-    color: var(--text-accent-color);
+a:active {
+    color: var(--text-color);
+    text-decoration: underline;
 }
 
 a:focus-visible,
@@ -194,6 +196,10 @@ button {
     font: inherit;
     color: var(--text-color);
     text-decoration: underline;
+}
+
+button:hover {
+    color: var(--text-color);
 }
 
 .actions-bar {
@@ -245,55 +251,4 @@ ul li::marker {
 img {
   max-width: 100%;
   height: auto;
-}
-
-
-.parallax-text {
-  --front-spacing: 0.14em;
-  --bg-spacing: 0.2em;
-
-  --bg-scale: 0.8;
-
-  --offset-x: 0em;
-  --offset-y: 0em;
-
-  --stroke-width: 0.5em;
-
-  --bg-color: var(--text-color);
-  --front-color: var(--text-color-invert);
-
-  position: relative;
-  width: fit-content;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-
-  font-weight: var(--text-heavy);
-  text-transform: uppercase;
-
-  color: var(--front-color);
-  line-height: var(--front-line-height);
-  letter-spacing: var(--front-spacing);
-
-  text-decoration: none;
-}
-
-.parallax-text::before {
-  content: attr(data-text);
-  position: absolute;
-  z-index: -1;
-  pointer-events: none;
-
-  top: 50%;
-  left: 50%;
-
-  transform: translate(
-    calc(-50% + var(--offset-x)),
-    calc(-50% + var(--offset-y))
-  ) scale(var(--bg-scale));
-
-  color: var(--bg-color);
-  -webkit-text-stroke: var(--stroke-width) var(--bg-color);
-
-  letter-spacing: var(--bg-spacing);
 }
